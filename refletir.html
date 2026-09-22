@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflexão Docente | Formação.TI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+<main class="section container" style="padding-top: 15vh; padding-bottom: 4rem; max-width: 650px; text-align: center; min-height: 80vh;">
+    <div class="animate-fade-up">
+      <span class="eyebrow" style="color: var(--slate-500); display: block; margin-bottom: 1rem;">Etapa 05 / 05 • Encerramento</span>
+      <h1 class="font-serif" style="font-size: 3rem; margin-bottom: 1.5rem; color: var(--slate-900);">Da formação para a prática</h1>
+      
+      <p style="font-size: 1.125rem; color: var(--slate-600); margin-bottom: 3rem; line-height: 1.7;">
+        Esta última etapa convida você a relacionar os conteúdos estudados ao seu próprio contexto escolar. Pensando na realidade dos seus alunos, qual é o maior desafio que você enfrenta hoje para integrar a tecnologia de forma crítica e intencional nas suas aulas?
+      </p>
+
+      <form id="reflexao-form" style="background: white; border: 1px solid var(--slate-200); padding: 2rem; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
+        <input 
+          type="text" 
+          placeholder="Seu nome (opcional)" 
+          style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid var(--slate-200); border-radius: 4px; font-family: var(--font-sans); font-size: 1rem;"
+        >
+        <textarea 
+          id="resposta-docente" 
+          rows="6" 
+          style="width: 100%; padding: 1rem; font-family: var(--font-sans); border: 1px solid var(--slate-300); border-radius: 4px; margin-bottom: 2rem; resize: vertical; background: var(--slate-50); font-size: 1rem;"
+          placeholder="Escreva sua reflexão aqui. (Esta resposta não será salva em nenhum banco de dados, servindo apenas como fechamento da sua jornada visual)..."
+          required
+        ></textarea>
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.25rem; font-size: 1.125rem;">Concluir Jornada de Formação</button>
+      </form>
+
+      <!-- Mensagem Conclusão (Invisível no início) -->
+      <div id="encerramento-msg" style="display: none; padding-top: 3rem;">
+        <div style="width: 64px; height: 64px; background: var(--slate-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 1.5rem;">✓</div>
+        <h2 class="font-serif" style="color: var(--slate-900); font-size: 2.5rem; margin-bottom: 1rem;">Jornada Concluída</h2>
+        <p style="color: var(--slate-600); margin-bottom: 3rem; line-height: 1.6; font-size: 1.125rem;">As tecnologias evoluem e as ferramentas mudam rapidamente, mas a intencionalidade pedagógica e o seu papel como professor mediador são insubstituíveis. Agradecemos o seu tempo e dedicação a este processo formativo.</p>
+        <a href="index.html" class="btn btn-outline" style="padding: 1rem 2rem;">Retornar à Tela Inicial</a>
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    // Lógica local para exibição do final (inserida logo antes do fechamento do body, após o main.js)
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('reflexao-form');
+      const msg = document.getElementById('encerramento-msg');
+      if(form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          form.style.display = 'none';
+          msg.style.display = 'block';
+          msg.classList.add('animate-fade-up', 'visible');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    });
+  </script>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('reflexao-form').addEventListener('submit', function(e) {
+      e.preventDefault(); // Impede o envio real
+      this.style.display = 'none'; // Esconde o form
+      const msg = document.getElementById('encerramento-msg');
+      msg.style.display = 'block';
+      setTimeout(() => msg.classList.add('animate-fade-up', 'visible'), 10);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

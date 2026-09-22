@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* NOVA PALETA VISUAL PEDAGÓGICA E ACADÊMICA */
+  --bg: #EEF2F3;
+  --surface: #F8FAF9;
+  --surface-alt: #E3E9E8;
+  --text: #263238;
+  --text-muted: #607078;
+  --primary: #315F63;
+  --primary-dark: #24494D;
+  --accent: #6F9B86;
+  --border: #D3DDDC;
+
+  /* MAPEAMENTO DE COMPATIBILIDADE (Garante que estilos inline antigos não quebrem e adotem a nova paleta) */
+  --slate-50: var(--surface);
+  --slate-100: var(--surface-alt);
+  --slate-200: var(--border);
+  --slate-300: var(--border);
+  --slate-400: var(--text-muted);
+  --slate-500: var(--text-muted);
+  --slate-600: var(--text-muted);
+  --slate-700: var(--text);
+  --slate-800: var(--text);
+  --slate-900: var(--primary-dark);
+
+  /* Variáveis de Feedback (Adaptadas para harmonia com a nova paleta) */
+  --success-bg: #EAEFEA;
+  --success-text: #274D38;
+  --success-border: #B9CEB9;
+  
+  --error-bg: #F5E9E9;
+  --error-text: #733636;
+  --error-border: #D8B2B2;
+
+  /* Tipografia */
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Instrument Serif', serif;
+}
+
+/* =========================================
+   COMPORTAMENTOS E ESTILOS DE COMPONENTES
+   ========================================= */
+
+/* Reset do Background Global para a nova paleta */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Utilitário para esconder elementos do DOM mantendo os listeners ativos */
+.hidden {
+  display: none !important;
+}
+
+/* Estilização Acessível dos Filtros */
+.filters-container {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.5rem;
+}
+
+.filter-btn {
+  background: var(--surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: var(--surface-alt);
+  color: var(--text);
+}
+
+/* Estado Ativo e Foco de Teclado */
+.filter-btn.active, 
+.filter-btn[aria-pressed="true"] {
+  background: var(--primary);
+  color: var(--surface);
+  border-color: var(--primary-dark);
+}
+
+.filter-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Componentes Interativos Reutilizáveis (Prática e Teste) */
+.option-btn {
+  text-align: left;
+  padding: 1.5rem;
+  border: 1px solid var(--slate-200);
+  background: white;
+  color: var(--slate-800);
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  transition: all 0.2s;
+  border-radius: 4px;
+  line-height: 1.5;
+}
+.context-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 769px) {
+  .context-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.option-btn:hover:not(:disabled) {
+  border-color: var(--slate-900);
+  background: var(--slate-50);
+}
+
+.option-btn:disabled {
+  cursor: default;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--slate-50);
+  color: var(--slate-900);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tipografia Editorial */
+.font-serif { font-family: var(--font-serif); font-weight: 400; }
+h1 { font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 1rem; }
+.eyebrow { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--slate-500); }
+
+/* Layout e Utilitários */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.section { padding: 6rem 0; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+@media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+@media (max-width: 375px) {
+  .quiz-btn, #options-container button {
+    padding: 1rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+/* Botões */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 0.75rem 1.5rem; font-size: 0.875rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  cursor: pointer; transition: all 0.3s ease; border: none; text-decoration: none;
+}
+.btn-primary { background: var(--slate-900); color: white; }
+.btn-primary:hover { background: var(--slate-800); transform: translateY(-2px); }
+.btn-outline { background: transparent; border: 1px solid var(--slate-900); color: var(--slate-900); }
+
+/* Animações (Substituindo dependência pesada de GSAP para o básico) */
+.animate-fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.animate-fade-up.visible { opacity: 1; transform: translateY(0); }
+/* Correção de Acessibilidade: Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Modal Acessível com elemento nativo <dialog> */
+dialog {
+  padding: 0;
+  border: none;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  max-width: 700px;
+  width: 90%; /* Evita overflow no mobile */
+  margin: auto; /* Centraliza no viewport */
+  position: fixed; /* Corrige comportamento em iOS */
+}
+
+/* Fundo escuro nativo do dialog */
+dialog::backdrop {
+  background: rgba(15, 23, 42, 0.85); /* var(--slate-900) com opacidade */
+  backdrop-filter: blur(4px);
+}
+
+.modal-header {
+  padding: 2rem 2rem 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.modal-body {
+  padding: 0 2rem 2rem 2rem;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.btn-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--slate-500);
+}
+/* =========================================
+   COMPOSIÇÃO EDITORIAL E DENSIDADE
+   ========================================= */
+
+/* Lista de Materiais (Substitui o Grid) */
+.editorial-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid var(--slate-900);
+}
+
+.editorial-row {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--slate-200);
+  align-items: start;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.3s;
+}
+
+.editorial-row:hover {
+  background-color: var(--slate-50);
+}
+
+.editorial-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.editorial-number {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--slate-300);
+  line-height: 1;
+}
+
+/* Trilha de Formação (Vertical) */
+.trail-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.trail-step {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--slate-200);
+  position: relative;
+}
+
+/* Linha conectora no desktop */
+.trail-step::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 8rem;
+  bottom: -3rem;
+  width: 1px;
+  background: var(--slate-200);
+  z-index: -1;
+}
+.trail-step:last-child::before { display: none; }
+
+.trail-marker {
+  width: 48px;
+  height: 48px;
+  background: white;
+  border: 1px solid var(--slate-900);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--slate-900);
+}
+
+/* Responsividade Básica para Editorial */
+@media (max-width: 768px) {
+  .editorial-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem 0;
+  }
+  .trail-step {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 2rem 0;
+  }
+  .trail-step::before { display: none; }
+  .editorial-number { display: none; /* Esconde número gigante no mobile para poupar espaço */ }
+}
+/* =========================================
+   SISTEMA VISUAL EDITORIAL E PEDAGÓGICO
+   ========================================= */
+
+/* Cabeçalhos de Página */
+.page-header { text-align: center; margin-bottom: 4rem; }
+.page-intro { font-size: 1.125rem; color: var(--slate-600); max-width: 650px; margin: 1rem auto 0; line-height: 1.6; }
+
+/* Trilha de Aprendizagem (Formação) */
+.learning-trail { display: flex; flex-direction: column; gap: 0; max-width: 800px; margin: 0 auto; position: relative; }
+.trail-item { display: grid; grid-template-columns: 60px 1fr; gap: 2rem; position: relative; padding-bottom: 4rem; }
+.trail-item::before { content: ''; position: absolute; left: 30px; top: 60px; bottom: 0; width: 2px; background: var(--slate-200); }
+.trail-item:last-child::before { display: none; }
+.trail-item:last-child { padding-bottom: 0; }
+.trail-number { width: 60px; height: 60px; background: var(--slate-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 1.5rem; z-index: 2; border: 4px solid var(--slate-50); }
+.trail-content { background: white; padding-top: 0.5rem; }
+.learning-objective { background: var(--slate-50); border-left: 4px solid var(--slate-400); padding: 1rem 1.5rem; margin: 1.5rem 0; font-weight: 600; color: var(--slate-700); font-size: 0.95rem; }
+.practice-example { background: var(--slate-100); padding: 1.5rem; border-radius: 4px; margin: 1.5rem 0; font-size: 0.95rem; color: var(--slate-800); }
+
+/* Motor de Prática */
+.practice-shell { max-width: 800px; margin: 0 auto; }
+.scenario-context { background: white; border: 1px solid var(--slate-200); padding: 2.5rem; margin-bottom: 2rem; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+.option-list { display: flex; flex-direction: column; gap: 1rem; }
+.option-btn { display: flex; align-items: flex-start; gap: 1.25rem; text-align: left; padding: 1.5rem; border: 1px solid var(--slate-200); background: white; color: var(--slate-800); cursor: pointer; border-radius: 6px; transition: all 0.2s ease; line-height: 1.5; font-family: var(--font-sans); font-size: 1rem; }
+.option-btn:hover:not(:disabled) { border-color: var(--slate-500); background: var(--slate-50); }
+.option-letter { font-weight: 700; color: var(--slate-500); background: var(--slate-100); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 4px; flex-shrink: 0; font-size: 0.875rem; transition: all 0.2s ease; }
+.option-btn:hover:not(:disabled) .option-letter { background: var(--slate-200); color: var(--slate-800); }
+.option-btn:disabled { cursor: default; opacity: 0.6; }
+.feedback-box { background: var(--slate-50); border-radius: 6px; padding: 2rem; margin-top: 2rem; border-left: 4px solid var(--slate-900); }
+
+/* Avaliação (Teste) */
+.quiz-shell { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; min-height: 60vh; }
+.quiz-header { border-bottom: 1px solid var(--slate-200); padding-bottom: 1.5rem; margin-bottom: 3rem; }
+.quiz-progress-container { margin-top: 1rem; }
+.quiz-progress-bar { width: 100%; height: 6px; background: var(--slate-200); border-radius: 3px; overflow: hidden; }
+.quiz-progress-fill { height: 100%; background: var(--slate-900); transition: width 0.4s ease; width: 0%; }
+.quiz-question { font-family: var(--font-serif); font-size: 2rem; line-height: 1.3; color: var(--slate-900); margin-bottom: 2.5rem; }
+
+/* Grid de Etapas (Home) */
+.journey-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; margin-top: 4rem; }
+.journey-card { background: var(--slate-800); border: 1px solid rgba(255,255,255,0.1); padding: 2rem 1.5rem; border-radius: 8px; text-decoration: none; color: white; transition: transform 0.3s ease, background 0.3s ease; display: flex; flex-direction: column; }
+.journey-card:hover { transform: translateY(-5px); background: var(--slate-700); }
+.journey-step-num { font-family: var(--font-serif); font-size: 2rem; color: var(--slate-400); margin-bottom: 1rem; line-height: 1; }
+
+/* Responsividade Básica */
+@media (max-width: 1024px) {
+  .journey-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .trail-item { grid-template-columns: 1fr; gap: 1rem; padding-bottom: 3rem; }
+  .trail-item::before, .trail-number { display: none; }
+  .journey-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .scenario-context { padding: 1.5rem; }
+  .option-btn { padding: 1rem; gap: 1rem; }
+}
+@media (max-width: 375px) {
+  .quiz-question { font-size: 1.5rem; }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Pedagógica | Formação.TI</title>
+  <meta name="description" content="Biblioteca de materiais, documentos e legislações sobre o uso de tecnologia na educação básica.">
+  
+  <!-- CSS Principal -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* Estilos locais para os botões de filtro (mantendo a simplicidade sem frameworks) */
+    .filters-container {
+      display: flex; 
+      gap: 1rem; 
+      margin-bottom: 3rem; 
+      flex-wrap: wrap; 
+      border-bottom: 1px solid var(--slate-200); 
+      padding-bottom: 1rem;
+    }
+    
+    .filter-btn {
+      background: transparent; 
+      color: var(--slate-600); 
+      border: 1px solid transparent; 
+      padding: 0.5rem 1rem; 
+      cursor: pointer; 
+      font-weight: 600;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+
+    .filter-btn:hover {
+      color: var(--slate-900);
+      background: var(--slate-100);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- O Header será injetado aqui pelo js/main.js -->
+  <div id="header-placeholder"></div>
+
+  <main class="container section" style="padding-top: 120px;">
+  <div class="animate-fade-up">
+    <span class="eyebrow">Etapa 02 / 05 • Biblioteca</span>
+    <h1 class="font-serif">Materiais de Apoio</h1>
+    <p style="font-size: 1.125rem; color: var(--slate-600); margin-bottom: 3rem; max-width: 650px;">
+      Documentos oficiais, roteiros e artigos acadêmicos que fundamentam a integração crítica da tecnologia na prática docente.
+    </p>
+
+    <!-- Controles de Filtro Acessíveis -->
+    <div class="filters-container" role="group" aria-label="Filtros de categoria">
+      <button class="filter-btn active" data-filter="todos" aria-pressed="true">Todos</button>
+      <button class="filter-btn" data-filter="tecnologia" aria-pressed="false">Tecnologia</button>
+      <button class="filter-btn" data-filter="cidadania" aria-pressed="false">Cidadania Digital</button>
+      <button class="filter-btn" data-filter="seguranca" aria-pressed="false">Segurança</button>
+      <button class="filter-btn" data-filter="privacidade" aria-pressed="false">Privacidade</button>
+      <button class="filter-btn" data-filter="educacao" aria-pressed="false">Educação</button>
+    </div>
+
+    <!-- Lista Editorial Densa -->
+    <div id="materiais-list" class="editorial-list">
+      <!-- Injetado via JS imediatamente no carregamento da página -->
+    </div>
+
+    <!-- Mensagem de estado vazio (Oculta por padrão via CSS) -->
+    <div id="empty-state-msg" class="hidden" style="text-align: center; padding: 4rem 1rem;">
+      <p style="color: var(--text-muted); font-size: 1.125rem;">Nenhum material encontrado para esta categoria no momento.</p>
+    </div>
+  </div>
+</main>
+
+  <!-- Modal Acessível Nativo (Oculto por padrão) -->
+  <dialog id="material-dialog" aria-labelledby="dialog-title">
+    <div class="modal-header">
+      <!-- O botão de fechar deve ter um aria-label claro para leitores de tela -->
+      <button id="btn-close-dialog" class="btn-close" aria-label="Fechar material">✕</button>
+    </div>
+    
+    <!-- O conteúdo textual do material entra aqui -->
+    <div id="dialog-dynamic-content" class="modal-body">
+      <!-- Injetado via js/materiais.js -->
+    </div>
+  </dialog>
+
+  <!-- Footer Estático Simples -->
+  <footer style="background: var(--slate-900); color: white; padding: 4rem 0; margin-top: auto;">
+    <div class="container" style="display: flex; flex-direction: column; md:flex-row; justify-content: space-between; gap: 2rem;">
+      <div>
+        <p class="font-serif" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Formação.TI</p>
+        <p style="color: var(--slate-400); font-size: 0.875rem;">Universidade Cruzeiro do Sul • Ciência da Computação</p>
+        <p style="color: var(--slate-500); font-size: 0.75rem; margin-top: 1rem;">Projeto acadêmico de Engenharia de Software.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Ordem de carregamento importante -->
+  <script src="js/main.js"></script>
+  <script src="js/materiais.js"></script>
+</body>
+</html>

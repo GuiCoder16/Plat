@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prática Situacional | Formação.TI</title>
+  <meta name="description" content="Reflita sobre situações práticas do cotidiano docente integradas à tecnologia.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <div id="header-placeholder"></div>
+
+  <main class="section practice-shell" style="padding-top: 120px; padding-bottom: 4rem;">
+    
+    <div style="border-bottom: 1px solid var(--slate-200); padding-bottom: 1rem; margin-bottom: 2.5rem; display: flex; justify-content: space-between; align-items: center;">
+      <span class="eyebrow" style="color: var(--slate-500);">Etapa 03 / 05 • Praticar</span>
+      <span class="eyebrow" id="progress-indicator" style="color: var(--slate-900);">Situação 01 de 04</span>
+    </div>
+    
+    <div id="practice-core" class="animate-fade-up">
+      <div class="page-header" style="text-align: left; margin-bottom: 2rem;">
+        <h1 class="font-serif" style="font-size: 2.5rem; margin-bottom: 0.5rem;">Tome uma decisão pedagógica</h1>
+        <p style="color: var(--slate-600); font-size: 1.125rem;">Leia o contexto escolar abaixo e escolha a abordagem que você considera mais ética e adequada.</p>
+      </div>
+      
+      <div class="scenario-context">
+        <span class="eyebrow" id="scenario-theme" style="color: var(--slate-500); margin-bottom: 1rem; display: block;">TEMA AQUI</span>
+        <h2 class="font-serif" id="scenario-text" style="font-size: 1.75rem; line-height: 1.5; color: var(--slate-900);">
+          <!-- Situação injetada via JS -->
+        </h2>
+      </div>
+      
+      <!-- Container das alternativas -->
+      <div id="options-container" class="option-list">
+        <!-- Alternativas injetadas via JS -->
+      </div>
+      
+      <!-- Container de Feedback -->
+      <div id="feedback-container" class="feedback-box" style="display: none;">
+        <h3 class="font-serif" id="feedback-title" style="margin-bottom: 1rem; font-size: 1.75rem;"></h3>
+        <p id="feedback-text" style="line-height: 1.7; color: var(--slate-800); margin-bottom: 1.5rem; font-size: 1.05rem;"></p>
+        
+        <div style="background: white; padding: 1.5rem; border-radius: 4px; border: 1px solid var(--slate-200); margin-bottom: 2rem;">
+          <strong style="display: block; margin-bottom: 0.5rem; color: var(--slate-900);">Por que isso importa?</strong>
+          <span id="feedback-importance" style="color: var(--slate-700); font-size: 0.95rem;"></span>
+        </div>
+
+        <button id="btn-next" class="btn btn-primary">Avançar para a próxima situação →</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/main.js"></script>
+  <script src="js/pratica.js"></script>
+</body>
+</html>

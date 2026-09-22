@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliação Formativa | Formação.TI</title>
+  <meta name="description" content="Avalie sua compreensão sobre integração de tecnologia na educação básica.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <div id="header-placeholder"></div>
+
+  <main class="section quiz-shell" style="padding-top: 120px; padding-bottom: 4rem;">
+    
+    <header class="quiz-header animate-fade-up">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <span class="eyebrow" style="color: var(--slate-500);">Etapa 04 / 05 • Testar</span>
+        <span class="eyebrow" id="quiz-progress-text" style="color: var(--slate-900);">Questão 01 de 08</span>
+      </div>
+      <h1 class="font-serif" style="font-size: 2rem; margin-bottom: 0.5rem; color: var(--slate-900);">Avaliação Formativa</h1>
+      <p style="color: var(--slate-600); font-size: 0.95rem;">O objetivo não é classificar sua atuação, mas verificar a compreensão teórica dos conceitos apresentados.</p>
+      
+      <!-- Barra de progresso visual -->
+      <div class="quiz-progress-container">
+        <div class="quiz-progress-bar">
+          <div id="quiz-progress-fill" class="quiz-progress-fill"></div>
+        </div>
+      </div>
+    </header>
+
+    <div id="quiz-core" class="animate-fade-up">
+      <h2 class="quiz-question" id="question-text">
+        <!-- Pergunta injetada via JS -->
+      </h2>
+      
+      <div id="quiz-options" class="option-list" style="margin-bottom: 2rem;">
+        <!-- Alternativas injetadas via JS -->
+      </div>
+
+      <div id="quiz-feedback" class="feedback-box" style="display: none;">
+        <!-- Feedback e Botão injetados via JS -->
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/main.js"></script>
+  <script src="js/teste.js"></script>
+</body>
+</html>
