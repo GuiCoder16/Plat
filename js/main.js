@@ -1,5 +1,25 @@
 // js/main.js
 
+const navLinks = [
+  { href: "index.html", label: "Início" },
+  { href: "formacao.html", label: "Formação" },
+  { href: "materiais.html", label: "Materiais" },
+  { href: "pratica.html", label: "Prática" },
+  { href: "teste.html", label: "Teste" },
+  { href: "refletir.html", label: "Refletir" }
+];
+
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+function navLinkHtml({ href, label }) {
+  const isCurrent = href === currentPage;
+  const color = isCurrent ? "var(--slate-900)" : "var(--slate-600)";
+  const ariaCurrent = isCurrent ? ' aria-current="page"' : "";
+  return `<a href="${href}" class="nav-link"${ariaCurrent} style="text-decoration: none; color: ${color}; font-size: 0.875rem; font-weight: 600;">${label}</a>`;
+}
+
+const navLinksHtml = navLinks.map(navLinkHtml).join("\n        ");
+
 const HeaderComponent = `
   <header id="main-header" style="position: fixed; top: 0; width: 100%; z-index: 50; transition: all 0.3s; padding: 1.5rem 0; background: rgba(255, 255, 255, 0.95); box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
@@ -7,14 +27,18 @@ const HeaderComponent = `
         <div style="width: 32px; height: 32px; background: var(--slate-900); color: white; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 1.25rem; border-radius: 4px;">F</div>
         <span style="font-weight: 700; font-size: 1.125rem;">Formação.TI</span>
       </a>
-      <nav class="desktop-nav" style="display: flex; gap: 2rem;">
-        <a href="index.html" class="nav-link" style="text-decoration: none; color: var(--slate-600); font-size: 0.875rem; font-weight: 600;">Início</a>
-        <a href="formacao.html" class="nav-link" style="text-decoration: none; color: var(--slate-600); font-size: 0.875rem; font-weight: 600;">Formação</a>
-        <a href="materiais.html" class="nav-link" style="text-decoration: none; color: var(--slate-600); font-size: 0.875rem; font-weight: 600;">Materiais</a>
-        <a href="pratica.html" class="nav-link" style="text-decoration: none; color: var(--slate-600); font-size: 0.875rem; font-weight: 600;">Prática</a>
-        <a href="teste.html" class="nav-link" style="text-decoration: none; color: var(--slate-600); font-size: 0.875rem; font-weight: 600;">Teste</a>
+      <nav class="desktop-nav" aria-label="Navegação principal" style="display: flex; gap: 2rem;">
+        ${navLinksHtml}
       </nav>
+      <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu de navegação">
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+      </button>
     </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Navegação principal">
+      ${navLinksHtml}
+    </nav>
   </header>
 `;
 
@@ -36,6 +60,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const footerPlaceholder = document.getElementById("footer-placeholder");
   if (footerPlaceholder) footerPlaceholder.innerHTML = FooterComponent;
+
+  // Menu mobile: abrir/fechar, fechar ao navegar e suporte a teclado (Escape)
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileNav = document.getElementById("mobile-nav");
+  if (menuToggle && mobileNav) {
+    const setMenu = (open) => {
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      menuToggle.setAttribute("aria-label", open ? "Fechar menu de navegação" : "Abrir menu de navegação");
+      mobileNav.classList.toggle("open", open);
+    };
+
+    menuToggle.addEventListener("click", () => {
+      setMenu(menuToggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    mobileNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => setMenu(false));
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileNav.classList.contains("open")) {
+        setMenu(false);
+        menuToggle.focus();
+      }
+    });
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

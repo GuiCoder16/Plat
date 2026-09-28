@@ -9,35 +9,7 @@
   <!-- CSS Principal -->
   <link rel="stylesheet" href="css/style.css">
   
-  <style>
-    /* Estilos locais para os botões de filtro (mantendo a simplicidade sem frameworks) */
-    .filters-container {
-      display: flex; 
-      gap: 1rem; 
-      margin-bottom: 3rem; 
-      flex-wrap: wrap; 
-      border-bottom: 1px solid var(--slate-200); 
-      padding-bottom: 1rem;
-    }
-    
-    .filter-btn {
-      background: transparent; 
-      color: var(--slate-600); 
-      border: 1px solid transparent; 
-      padding: 0.5rem 1rem; 
-      cursor: pointer; 
-      font-weight: 600;
-      font-family: var(--font-sans);
-      font-size: 0.875rem;
-      transition: all 0.3s ease;
-      border-radius: 4px;
-    }
 
-    .filter-btn:hover {
-      color: var(--slate-900);
-      background: var(--slate-100);
-    }
-  </style>
 </head>
 <body>
   
@@ -87,16 +59,8 @@
     </div>
   </dialog>
 
-  <!-- Footer Estático Simples -->
-  <footer style="background: var(--slate-900); color: white; padding: 4rem 0; margin-top: auto;">
-    <div class="container" style="display: flex; flex-direction: column; md:flex-row; justify-content: space-between; gap: 2rem;">
-      <div>
-        <p class="font-serif" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Formação.TI</p>
-        <p style="color: var(--slate-400); font-size: 0.875rem;">Universidade Cruzeiro do Sul • Ciência da Computação</p>
-        <p style="color: var(--slate-500); font-size: 0.75rem; margin-top: 1rem;">Projeto acadêmico de Engenharia de Software.</p>
-      </div>
-    </div>
-  </footer>
+  <!-- Footer injetado via js/main.js -->
+  <div id="footer-placeholder"></div>
 
   <!-- Scripts: Ordem de carregamento importante -->
   <script src="js/main.js"></script>

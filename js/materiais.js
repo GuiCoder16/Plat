@@ -70,6 +70,30 @@ const materiais = [
     reference: "HORNINK et al. — Tecnologias digitais mediando o ensino-aprendizagem de Ciências (2018).",
     pratica: "Utilize simuladores online gratuitos para demonstrar fenômenos difíceis de visualizar apenas com livros didáticos.",
     reflexao: "Como você pode transitar de uma postura de 'transmissor' para 'curador' de conhecimento?"
+  },
+  {
+    id: 7,
+    title: "Segurança Digital no Cotidiano Escolar",
+    category: "seguranca",
+    type: "Guia Pedagógico",
+    time: "20 min",
+    objetivo: "Reconhecer situações de risco digital vividas pelos alunos e transformá-las em oportunidades de educação preventiva.",
+    content: "Golpes em jogos, mensagens de desconhecidos e senhas compartilhadas fazem parte do cotidiano dos estudantes muito antes de chegarem à escola. O professor não precisa ser especialista em segurança da informação: sua função é mediar a conversa, ajudar a turma a reconhecer padrões de engenharia social (pedidos de dados pessoais, promessas vantajosas, sensação de urgência) e construir combinados claros de convivência digital. A abordagem educativa previne mais do que a proibição, porque o aluno permanecerá conectado fora do horário escolar.",
+    pratica: "Construa com a turma um combinado digital para jogos e chats: nunca compartilhar nome, escola ou rotina com desconhecidos; avisar um adulto de confiança ao receber mensagens suspeitas; e desconfiar de promessas de recompensas gratuitas.",
+    reflexao: "Diante de um incidente digital (golpe, mensagem de desconhecido, cyberbullying), a sua primeira reação tem sido educar, proibir ou ignorar?",
+    reference: "Base Nacional Comum Curricular — BNCC (2018), Competência Geral 5; Lei nº 14.533/2023 — Política Nacional de Educação Digital."
+  },
+  {
+    id: 8,
+    title: "Privacidade e Proteção de Dados na Escola",
+    category: "privacidade",
+    type: "Guia Pedagógico",
+    time: "25 min",
+    objetivo: "Aplicar minimização de dados e consentimento na escolha de ferramentas digitais para a sala de aula.",
+    content: "Ao adotar um aplicativo ou plataforma educacional, a escola passa a lidar com dados pessoais de crianças e adolescentes — um dos pontos mais sensíveis da proteção de dados. Nem toda ferramenta que se diz 'educacional' coleta apenas o necessário. Antes de cadastrar uma turma, o professor pode se perguntar: quais dados a atividade realmente exige? Existe uma alternativa que não exija cadastro? Há autorização formal dos responsáveis? Perguntas simples como essas protegem os alunos e desenvolvem, nos próprios estudantes, a consciência sobre o valor dos seus dados.",
+    pratica: "Antes de adotar um aplicativo educativo, verifique quais dados ele solicita, se há alternativa sem cadastro para menores e se o consentimento dos responsáveis foi formalizado. Registre a escolha e o motivo no seu planejamento.",
+    reflexao: "Quais dados dos seus alunos são realmente necessários para a atividade planejada — e quais estão sendo coletados apenas por conveniência?",
+    reference: "Lei Geral de Proteção de Dados (LGPD) e Estatuto da Criança e do Adolescente (ECA) — referências apresentadas na Trilha de Formação (Etapa 02) e na Prática Situacional."
   }
 ];
 

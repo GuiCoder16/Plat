@@ -19,11 +19,14 @@
       </p>
 
       <form id="reflexao-form" style="background: white; border: 1px solid var(--slate-200); padding: 2rem; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.02);">
+        <label for="nome-docente" style="display: block; text-align: left; font-size: 0.875rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem;">Seu nome (opcional)</label>
         <input 
           type="text" 
+          id="nome-docente"
           placeholder="Seu nome (opcional)" 
           style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid var(--slate-200); border-radius: 4px; font-family: var(--font-sans); font-size: 1rem;"
         >
+        <label for="resposta-docente" style="display: block; text-align: left; font-size: 0.875rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem;">Sua reflexão</label>
         <textarea 
           id="resposta-docente" 
           rows="6" 
@@ -43,9 +46,11 @@
       </div>
     </div>
   </main>
-  
+
+  <div id="footer-placeholder"></div>
+
   <script>
-    // Lógica local para exibição do final (inserida logo antes do fechamento do body, após o main.js)
+    // Lógica local para exibição do final
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('reflexao-form');
       const msg = document.getElementById('encerramento-msg');
@@ -61,15 +66,5 @@
     });
   </script>
   <script src="js/main.js"></script>
-  <script>
-    document.getElementById('reflexao-form').addEventListener('submit', function(e) {
-      e.preventDefault(); // Impede o envio real
-      this.style.display = 'none'; // Esconde o form
-      const msg = document.getElementById('encerramento-msg');
-      msg.style.display = 'block';
-      setTimeout(() => msg.classList.add('animate-fade-up', 'visible'), 10);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  </script>
 </body>
 </html>

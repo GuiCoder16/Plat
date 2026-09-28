@@ -104,7 +104,7 @@ function renderQuestion() {
   
   // Atualiza indicadores de progresso
   progressTextEl.textContent = `Questão ${currentQ + 1} de ${questions.length}`;
-  const progressPercentage = ((currentQ) / questions.length) * 100;
+  const progressPercentage = ((currentQ + 1) / questions.length) * 100;
   progressFillEl.style.width = `${progressPercentage}%`;
   
   questionEl.textContent = q.pergunta;
@@ -181,7 +181,16 @@ function showResult() {
   progressFillEl.style.width = `100%`;
   progressTextEl.textContent = `Avaliação Concluída`;
   
-  let interpretacao = `O seu resultado formativo indica a consolidação de grande parte dos conceitos estruturais (BNCC, LGPD, Letramento). Para um aprofundamento contínuo, a consulta à Biblioteca de Materiais permanece recomendada ao longo de seu planejamento escolar.`;
+  let interpretacao;
+  if (score <= 3) {
+    interpretacao = "O resultado indica que alguns conceitos centrais ainda podem ser revisados. Consulte os materiais da biblioteca e retome os módulos relacionados às questões que geraram mais dificuldade.";
+  } else if (score <= 5) {
+    interpretacao = "O resultado indica compreensão parcial dos conceitos trabalhados. A revisão de alguns conteúdos pode ajudar a consolidar os conhecimentos.";
+  } else if (score <= 7) {
+    interpretacao = "O resultado indica boa compreensão dos principais conceitos abordados. A consulta aos materiais pode contribuir para aprofundar os temas.";
+  } else {
+    interpretacao = "O resultado indica compreensão consistente dos conceitos trabalhados nesta atividade. A biblioteca permanece disponível para aprofundamento.";
+  }
 
   container.innerHTML = `
     <div class="animate-fade-up visible" style="text-align: center; padding: 3rem 0;">
