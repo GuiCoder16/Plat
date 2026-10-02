@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Professor | Formação.TI</title>
+  <meta name="description" content="Acesso à área do professor — continue sua formação na plataforma Formação.TI.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="login-hero">
+    <div class="login-bg" aria-hidden="true">
+      <img src="assets/img/hero-biblioteca.jpg" alt="" class="login-bg-img" id="login-bg-img" fetchpriority="high">
+      <div class="login-overlay"></div>
+    </div>
+
+    <p class="login-brand">Formação.TI</p>
+
+    <div class="login-content">
+      <h1 class="login-title font-serif">
+        <span class="login-word" style="animation-delay: 400ms;">Entre</span>
+        <span class="login-word" style="animation-delay: 480ms;">na</span>
+        <span class="login-word" style="animation-delay: 560ms;">sua</span>
+        <span class="login-word" style="animation-delay: 640ms;">jornada.</span>
+      </h1>
+      <p class="login-sub">Acesse sua área para continuar sua formação.</p>
+
+      <form id="login-form" class="login-panel">
+        <div class="login-field">
+          <label for="login-email">E-mail</label>
+          <input id="login-email" name="email" type="email" autocomplete="email" required
+            placeholder="professor@escola.edu.br">
+        </div>
+        <div class="login-field">
+          <label for="login-senha">Senha</label>
+          <input id="login-senha" name="senha" type="password" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn btn-login">Entrar</button>
+        <p id="login-feedback" class="login-feedback" role="status" aria-live="polite"></p>
+        <a href="index.html" class="login-back">← Voltar ao início</a>
+      </form>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
