@@ -4,40 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Área do Professor | Formação.TI</title>
-  <meta name="description" content="Acesso à área do professor — ambiente docente da plataforma Formação.TI.">
+  <meta name="description" content="Acesso à área do professor — continue sua formação na plataforma Formação.TI.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="header-placeholder"></div>
+  <main class="login-hero">
+    <div class="login-bg" aria-hidden="true">
+      <img src="assets/img/hero-biblioteca.jpg" alt="" class="login-bg-img" id="login-bg-img" fetchpriority="high">
+      <div class="login-overlay"></div>
+    </div>
 
-  <main style="padding-top: 160px;">
-    <section class="container" style="max-width: 480px; margin-bottom: 4rem;">
-      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 2.5rem;">
-        <span class="eyebrow" style="display: block; margin-bottom: 0.75rem;">Área do professor</span>
-        <h1 class="font-serif" style="font-size: 2rem; margin-bottom: 0.75rem;">Acesso ao ambiente docente</h1>
-        <p style="color: var(--text-muted); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 2rem;">
-          Espaço reservado ao corpo docente para acompanhamento das turmas e dos percursos formativos.
-        </p>
+    <p class="login-brand">Formação.TI</p>
 
-        <form id="login-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
-          <div style="display: flex; flex-direction: column; gap: 0.375rem;">
-            <label for="login-email" style="font-size: 0.875rem; font-weight: 600;">E-mail institucional</label>
-            <input id="login-email" name="email" type="email" required autocomplete="email"
-              placeholder="professor@escola.edu.br"
-              style="padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 4px; background: white; font-family: var(--font-sans); font-size: 0.9375rem; color: var(--text);">
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 0.375rem;">
-            <label for="login-senha" style="font-size: 0.875rem; font-weight: 600;">Senha</label>
-            <input id="login-senha" name="senha" type="password" required autocomplete="current-password"
-              style="padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 4px; background: white; font-family: var(--font-sans); font-size: 0.9375rem; color: var(--text);">
-          </div>
-          <button type="submit" class="btn btn-primary">Entrar</button>
-          <p id="login-feedback" role="status" aria-live="polite" style="font-size: 0.875rem; color: var(--text-muted); margin: 0;"></p>
-        </form>
-      </div>
-    </section>
+    <div class="login-content">
+      <h1 class="login-title font-serif">
+        <span class="login-word" style="animation-delay: 400ms;">Entre</span>
+        <span class="login-word" style="animation-delay: 480ms;">na</span>
+        <span class="login-word" style="animation-delay: 560ms;">sua</span>
+        <span class="login-word" style="animation-delay: 640ms;">jornada.</span>
+      </h1>
+      <p class="login-sub">Acesse sua área para continuar sua formação.</p>
+
+      <form id="login-form" class="login-panel">
+        <div class="login-field">
+          <label for="login-email">E-mail</label>
+          <input id="login-email" name="email" type="email" autocomplete="email" required
+            placeholder="professor@escola.edu.br">
+        </div>
+        <div class="login-field">
+          <label for="login-senha">Senha</label>
+          <input id="login-senha" name="senha" type="password" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn btn-login">Entrar</button>
+        <p id="login-feedback" class="login-feedback" role="status" aria-live="polite"></p>
+        <a href="index.html" class="login-back">← Voltar ao início</a>
+      </form>
+    </div>
   </main>
-  <div id="footer-placeholder"></div>
+
   <script src="js/main.js"></script>
   <script src="js/login.js"></script>
 </body>

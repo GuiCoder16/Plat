@@ -20,6 +20,8 @@ function navLinkHtml({ href, label }) {
 
 const navLinksHtml = navLinks.map(navLinkHtml).join("\n        ");
 
+const loginCtaHtml = `<a href="login.html" class="nav-cta">Entrar</a>`;
+
 const HeaderComponent = `
   <header id="main-header" style="position: fixed; top: 0; width: 100%; z-index: 50; transition: all 0.3s; padding: 1.5rem 0; background: rgba(255, 255, 255, 0.95); box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
     <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
@@ -27,8 +29,9 @@ const HeaderComponent = `
         <div style="width: 32px; height: 32px; background: var(--slate-900); color: white; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 1.25rem; border-radius: 4px;">F</div>
         <span style="font-weight: 700; font-size: 1.125rem;">Formação.TI</span>
       </a>
-      <nav class="desktop-nav" aria-label="Navegação principal" style="display: flex; gap: 2rem;">
+      <nav class="desktop-nav" aria-label="Navegação principal" style="display: flex; gap: 2rem; align-items: center;">
         ${navLinksHtml}
+        ${loginCtaHtml}
       </nav>
       <button id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu de navegação">
         <span class="menu-toggle-bar"></span>
@@ -38,6 +41,7 @@ const HeaderComponent = `
     </div>
     <nav id="mobile-nav" class="mobile-nav" aria-label="Navegação principal">
       ${navLinksHtml}
+      ${loginCtaHtml}
     </nav>
   </header>
 `;

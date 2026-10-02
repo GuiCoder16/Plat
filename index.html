@@ -10,28 +10,18 @@
 <body>
   <div id="header-placeholder"></div>
 
-  <main>
-    <!-- 1. HERO — primeira dobra imersiva -->
-    <section class="hero" aria-label="Apresentação do projeto Formação.TI">
-      <div class="hero-media" aria-hidden="true">
-        <img src="assets/img/hero-biblioteca.jpg" alt="" class="hero-img" id="hero-img" fetchpriority="high">
-        <div class="hero-overlay"></div>
-      </div>
-      <div class="hero-content container">
-        <p class="hero-eyebrow">Plataforma Acadêmica de Formação</p>
-        <h1 class="hero-title font-serif">
-          <span class="hero-line">
-            <span class="hero-word" style="animation-delay: 0ms;">Tecnologia</span>
-          </span>
-          <span class="hero-line">
-            <span class="hero-word" style="animation-delay: 80ms;">na</span>
-            <span class="hero-word" style="animation-delay: 160ms;">Educação.</span>
-          </span>
-        </h1>
-        <p class="hero-intro">Formação de professores para o uso crítico, consciente e pedagógico das tecnologias digitais.</p>
-        <div class="hero-actions">
-          <a href="#conhecer" class="btn btn-hero-primary">Conhecer o projeto</a>
-          <a href="login.html" class="btn btn-hero-ghost">Área do professor <span class="btn-arrow" aria-hidden="true">→</span></a>
+  <main style="padding-top: 100px;">
+    <!-- 1. HERO -->
+    <section class="section container animate-fade-up">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <span class="eyebrow" style="color: var(--slate-500); display: block; margin-bottom: 1.5rem;">Plataforma Acadêmica de Formação</span>
+        <h1 class="font-serif" style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1.5rem; color: var(--slate-900);">Formação docente para uma <span style="font-style: italic;">educação conectada.</span></h1>
+        <p class="page-intro" style="margin-bottom: 2.5rem;">
+          Um ecossistema digital desenvolvido para apoiar professores do Ensino Fundamental na compreensão e utilização crítica, ética e pedagógica das tecnologias da informação.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="formacao.html" class="btn btn-primary">Começar a formação →</a>
+          <a href="materiais.html" class="btn btn-outline">Explorar materiais</a>
         </div>
       </div>
     </section>
@@ -113,6 +103,5 @@
   </main>
   <div id="footer-placeholder"></div>
   <script src="js/main.js"></script>
-  <script src="js/hero.js"></script>
 </body>
 </html>
